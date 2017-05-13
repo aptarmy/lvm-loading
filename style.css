@@ -5,7 +5,7 @@ html, body {
 }
 
 /* apt loading */
-.apt-loading {
+.apt-loading-white, .apt-loading-dark {
 	position: fixed;
 	background: #f0f9ff;
 	background: -moz-radial-gradient(center, ellipse cover, #f0f9ff 0%, #cbebff 71%, #e5e5e5 99%);
@@ -18,7 +18,7 @@ html, body {
 	right: 0px;
 	z-index: 10;
 }
-.apt-loading:before {
+.apt-loading-white:before, .apt-loading-dark:before {
 	content: "";
 	display: block;
 	padding: calc(15% + 10px);
@@ -27,11 +27,11 @@ html, body {
 	top: 50%;
 	transform: translate(-50%, -50%) rotate(0deg);
 	border-radius: 100%;
-	border-top: 5px solid #e69826;
+	border-top: 5px solid #f49800;
 	border-right: 5px solid transparent;
 	animation: apt-loading-top 2s linear infinite;
 }
-.apt-loading:after {
+.apt-loading-white:after, .apt-loading-dark:after {
 	content: "";
 	display: block;
 	padding: calc(15% + 10px);
@@ -40,11 +40,11 @@ html, body {
 	top: 50%;
 	transform: translate(-50%, -50%) rotate(0deg);
 	border-radius: 100%;
-	border-bottom: 5px solid #e69826;
+	border-bottom: 5px solid #f49800;
 	border-left: 5px solid transparent;
 	animation: apt-loading-bottom 2s linear infinite reverse;
 }
-.apt-loading img {
+.apt-loading-white img, .apt-loading-dark img {
 	width: 15%;
 	min-width: 100px;
 	position: absolute;
@@ -66,5 +66,57 @@ html, body {
 	}
 	100% {
 		transform: translate(-50%, -50%) rotate(0deg);
+	}
+}
+
+/* apt loading white */
+.apt-loading-white {
+	animation: apt-loading-white 10s infinite;
+}
+@keyframes apt-loading-white {
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* apt loading dark */
+.apt-loading-dark {
+	 animation: apt-loading-dark 10s infinite; 
+	background: rgba(43,43,43,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(43,43,43,1) 0%, rgba(15,15,15,1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(43,43,43,1)), color-stop(100%, rgba(15,15,15,1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(43,43,43,1) 0%, rgba(15,15,15,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(43,43,43,1) 0%, rgba(15,15,15,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(43,43,43,1) 0%, rgba(15,15,15,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(43,43,43,1) 0%, rgba(15,15,15,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b2b2b', endColorstr='#0f0f0f', GradientType=1 );
+}
+@keyframes apt-loading-dark {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
 	}
 }
